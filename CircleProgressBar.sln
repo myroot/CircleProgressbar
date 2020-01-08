@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircleProgressBar", "CircleProgressBar.csproj", "{399F61F5-3B3F-4A1B-883E-8D6CCBF8AE19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{399F61F5-3B3F-4A1B-883E-8D6CCBF8AE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399F61F5-3B3F-4A1B-883E-8D6CCBF8AE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399F61F5-3B3F-4A1B-883E-8D6CCBF8AE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399F61F5-3B3F-4A1B-883E-8D6CCBF8AE19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE02100C-9346-4D2C-A6B4-69A59CEE47E0}
+	EndGlobalSection
+EndGlobal
