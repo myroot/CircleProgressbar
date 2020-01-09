@@ -50,9 +50,9 @@ namespace Sample
             {
                 Style = SKPaintStyle.Stroke,
                 StrokeCap = SKStrokeCap.Round,
-                StrokeWidth = 23,
-                ImageFilter = SKImageFilter.CreateDropShadow(1, 1, 2, 2, SKColor.Parse("#222222"), SKDropShadowImageFilterShadowMode.DrawShadowAndForeground),
-                Shader = SKShader.CreateSweepGradient(new SKPoint(125, 125), colors, null)
+                StrokeWidth = 22,
+                ImageFilter = SKImageFilter.CreateDropShadow(1, 1, 1, 1, SKColor.Parse("#222222"), SKDropShadowImageFilterShadowMode.DrawShadowAndForeground),
+                Shader = SKShader.CreateSweepGradient(new SKPoint(info.Width / 2, info.Height / 2), colors, null)
             })
             {
 
