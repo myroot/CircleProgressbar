@@ -15,24 +15,28 @@ namespace Sample
         public MainPage()
         {
             InitializeComponent();
-            Device.StartTimer(TimeSpan.FromMilliseconds(10), () =>
+            
+            Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
             {
                 if (Progress.Progress == 1.0)
                     Progress.Progress = 0;
+                /*
                 if (Progress2.Progress == 1.0)
                     Progress2.Progress = 0;
                 if (Progress3.Progress == 1.0)
                     Progress3.Progress = 0;
                 if (Progress4.Progress == 1.0)
                     Progress4.Progress = 0;
+                    */
 
                 Progress.Progress += 0.008;
-                Progress2.Progress += 0.008;
+                /*Progress2.Progress += 0.008;
                 Progress3.Progress += 0.008;
-                Progress4.Progress += 0.008;
+                Progress4.Progress += 0.008;*/
 
                 return true;
             });
+            
         }
     }
 }
