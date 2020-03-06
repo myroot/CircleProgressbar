@@ -10,8 +10,18 @@
             <local:RadialProgress x:Name="Progress"
                                   StartAngle="45"
                                   RadialBackgroundColor="#2c4204"
-                                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                                     AbsoluteLayout.LayoutFlags="All"/>
+                                  AbsoluteLayout.LayoutBounds="0.5, 0.5, 360, 360"
+                                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+            <local:RadialProgress 
+                                  StartAngle="0"
+                                  RadialBackgroundColor="#340914"
+                                  RadialStartColor="#ff1509"
+                                  RadialMiddleColor="#ff1c5c"
+                                  RadialEndColor="#ff258f"
+                                  Progress="0.7"
+                                  AbsoluteLayout.LayoutBounds="0.5, 0.5, 200, 200"
+                                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
             <Label x:Name="Label" Text="{Binding Progress, Source={x:Reference Progress}, StringFormat='{0:P0}'}"
                    HorizontalTextAlignment="Center"
