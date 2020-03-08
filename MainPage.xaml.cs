@@ -15,28 +15,30 @@ namespace Sample
         public MainPage()
         {
             InitializeComponent();
-            //Progress.TextFormat = "{0:P0} Complete";
+            Progress.TextFormat = "{0:P0} Complete";
+
+            /*
             Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
             {
-                //if (Progress.Progress == 1.0)
-                //    Progress.Progress = 0;
-                /*
-                if (Progress2.Progress == 1.0)
-                    Progress2.Progress = 0;
-                if (Progress3.Progress == 1.0)
-                    Progress3.Progress = 0;
-                if (Progress4.Progress == 1.0)
-                    Progress4.Progress = 0;
-                    */
-
-                //Progress.Progress += 0.008;
-                /*Progress2.Progress += 0.008;
-                Progress3.Progress += 0.008;
-                Progress4.Progress += 0.008;*/
-
+                if (Progress.Progress == 1.0)
+                    Progress.Progress = 0;
+                
+                Progress.Progress += 0.008;
                 return true;
             });
-            
+            */
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var ani = new Animation((d) =>
+            {
+                Progress.Progress = d * 0.65;
+                Progress2.Progress = d * 0.70;
+                Progress3.Progress = d * 0.50;
+            });
+            ani.Commit(this, "Up", length:1000, easing:Easing.SinIn);
         }
     }
 }

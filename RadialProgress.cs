@@ -19,6 +19,7 @@ namespace Sample
         public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(RadialProgress), defaultValue: 20d, propertyChanged: (b, o, n) => ((RadialProgress)b).InvalidateSurface());
         public static readonly BindableProperty HasLabelProperty = BindableProperty.Create(nameof(HasLabel), typeof(bool), typeof(RadialProgress), defaultValue: true, propertyChanged: (b, o, n) => ((RadialProgress)b).InvalidateSurface());
         public static readonly BindableProperty StartAngleProperty = BindableProperty.Create(nameof(StartAngle), typeof(double), typeof(RadialProgress), defaultValue: 0d, propertyChanged: (b, o, n) => ((RadialProgress)b).InvalidateSurface());
+        public static readonly BindableProperty SweepAngleProperty = BindableProperty.Create(nameof(SweepAngle), typeof(double), typeof(RadialProgress), defaultValue: 365d, propertyChanged: (b, o, n) => ((RadialProgress)b).InvalidateSurface());
 
         public RadialProgress()
         {
@@ -160,7 +161,17 @@ namespace Sample
             }
         }
 
-
+        public double SweepAngle
+        {
+            get
+            {
+                return (double)GetValue(SweepAngleProperty);
+            }
+            set
+            {
+                SetValue(SweepAngleProperty, value);
+            }
+        }
 
         void OnPaint(object sender, SKPaintSurfaceEventArgs e)
         {
@@ -183,7 +194,7 @@ namespace Sample
                 if (RadialBackgroundColor != Color.Default && RadialBackgroundColor != Color.Transparent)
                 {
                     primaryPaint.Color = RadialBackgroundColor.ToSKColor();
-                    backgroundPath.AddArc(new SKRect(margin, margin, info.Width - margin, info.Height - margin), 0, 360);
+                    backgroundPath.AddArc(new SKRect(margin, margin, info.Width - margin, info.Height - margin), -90 + (float)StartAngle, (float)SweepAngle);
                     canvas.DrawPath(backgroundPath, primaryPaint);
                 }
 
@@ -210,9 +221,9 @@ namespace Sample
                     1.0f              // start
                 };
 
-                primaryPaint.Shader = SKShader.CreateSweepGradient(new SKPoint(info.Rect.MidX, info.Rect.MidY), colors, colorPos, SKShaderTileMode.Repeat, -90 + (float)StartAngle, 360 - 90 + (float)StartAngle);
+                primaryPaint.Shader = SKShader.CreateSweepGradient(new SKPoint(info.Rect.MidX, info.Rect.MidY), colors, colorPos, SKShaderTileMode.Mirror, -90 + (float)StartAngle, -90 + (float)StartAngle + (float)SweepAngle);
 
-                path.AddArc(new SKRect(margin, margin, info.Width - margin, info.Height - margin), -90 + (float)StartAngle, 360 * (float)Progress);
+                path.AddArc(new SKRect(margin, margin, info.Width - margin, info.Height - margin), -90 + (float)StartAngle, (float)SweepAngle * (float)Progress);
                 canvas.DrawPath(path, primaryPaint);
                 if (HasLabel)
                 {

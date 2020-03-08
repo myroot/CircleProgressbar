@@ -8,8 +8,6 @@
             VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
             <local:RadialProgress x:Name="Progress"
                                   Thickness="40"
-                                  StartAngle="0"
-                                  Progress="0.4"
                                   RadialBackgroundColor="#340914"
                                   RadialStartColor="#ff1509"
                                   RadialMiddleColor="#f8009e"
@@ -17,25 +15,23 @@
                                   TextColor="White"
                                   AbsoluteLayout.LayoutBounds="0.5, 0.5, 360, 360"
                                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
-            <local:RadialProgress HasLabel="False" 
+            <local:RadialProgress x:Name="Progress2" HasLabel="False" 
                                   Thickness="40"
                                   StartAngle="0"
                                   RadialBackgroundColor="#2c4204"
                                   RadialStartColor="#aaff00"
                                   RadialMiddleColor="#d8fe00"
                                   RadialEndColor="#d8fe00"
-                                  Progress="0.7"
                                   AbsoluteLayout.LayoutBounds="0.5, 0.5, 276, 276"
                                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
-            <local:RadialProgress HasLabel="False" 
+            <local:RadialProgress x:Name="Progress3" HasLabel="False" 
                                   Thickness="40"
                                   StartAngle="0"
                                   RadialBackgroundColor="#112a2e"
                                   RadialStartColor="#5bfeeb"
                                   RadialMiddleColor="#65e9ed"
                                   RadialEndColor="#6ae9f8"
-                                  Progress="0.5"
                                   AbsoluteLayout.LayoutBounds="0.5, 0.5, 192, 192"
                                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
 <!--
