@@ -218,7 +218,7 @@ namespace Sample
                     (1 / 6.0f) * 3,   // mid
                     (1 / 6.0f) * 4,   // end
                     (1 / 6.0f) * 5.7f,// end
-                    1.0f              // start
+                    0.95f              // start
                 };
 
                 primaryPaint.Shader = SKShader.CreateSweepGradient(new SKPoint(info.Rect.MidX, info.Rect.MidY), colors, colorPos, SKShaderTileMode.Repeat, -90 + (float)StartAngle, -90 + (float)StartAngle + (float)SweepAngle);
