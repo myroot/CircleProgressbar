@@ -34,7 +34,7 @@ namespace Sample
             base.OnAppearing();
             var ani = new Animation((d) =>
             {
-                Progress.Progress = d * 0.65;
+                Progress.Progress = d * 0.45f;
                 Progress2.Progress = d * 0.70;
                 Progress3.Progress = d * 0.50;
             });

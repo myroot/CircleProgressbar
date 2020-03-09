@@ -221,7 +221,7 @@ namespace Sample
                     1.0f              // start
                 };
 
-                primaryPaint.Shader = SKShader.CreateSweepGradient(new SKPoint(info.Rect.MidX, info.Rect.MidY), colors, colorPos, SKShaderTileMode.Mirror, -90 + (float)StartAngle, -90 + (float)StartAngle + (float)SweepAngle);
+                primaryPaint.Shader = SKShader.CreateSweepGradient(new SKPoint(info.Rect.MidX, info.Rect.MidY), colors, colorPos, SKShaderTileMode.Repeat, -90 + (float)StartAngle, -90 + (float)StartAngle + (float)SweepAngle);
 
                 path.AddArc(new SKRect(margin, margin, info.Width - margin, info.Height - margin), -90 + (float)StartAngle, (float)SweepAngle * (float)Progress);
                 canvas.DrawPath(path, primaryPaint);

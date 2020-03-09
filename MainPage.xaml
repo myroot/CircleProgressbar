@@ -9,9 +9,9 @@
             <local:RadialProgress x:Name="Progress"
                                   Thickness="40"
                                   RadialBackgroundColor="#340914"
-                                  RadialStartColor="#ff1509"
-                                  RadialMiddleColor="#f8009e"
-                                  RadialEndColor="#f707e3"
+                                  RadialStartColor="Red"
+                                  RadialMiddleColor="Green"
+                                  RadialEndColor="Blue"
                                   TextColor="White"
                                   AbsoluteLayout.LayoutBounds="0.5, 0.5, 360, 360"
                                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
