@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:CircleProgressBar"
+             mc:Ignorable="d"
+             x:Class="CircleProgressBar.Test3Page">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <local:HeartChart AbsoluteLayout.LayoutBounds="52, 89, 256, 210" AbsoluteLayout.LayoutFlags="None"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

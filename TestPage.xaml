@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:Sample"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CircleProgressBar.TestPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <local:RadialProgress AbsoluteLayout.LayoutBounds="0.5,0.5, 120, 120" AbsoluteLayout.LayoutFlags="PositionProportional"
+                                  RadialStartColor="GreenYellow"
+                                  RadialMiddleColor="GreenYellow"
+                                  RadialEndColor="GreenYellow"
+                                  RadialBackgroundColor="Gray"
+                                  Progress="0.3"
+                                  Thickness="8"
+                                  HasLabel="False"
+                                  StartAngle="-130"
+                                  SweepAngle="260"/>
+            <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0.5, 60, 80" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <BoxView Color="Transparent" HeightRequest="3"/>
+                <StackLayout VerticalOptions="End">
+                    <Image Source="favorite.png" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="30" />
+                    <Label FontSize="8" Text="2731" HorizontalOptions="Center" TextColor="GreenYellow"/>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
