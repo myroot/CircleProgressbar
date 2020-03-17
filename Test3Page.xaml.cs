@@ -16,5 +16,18 @@ namespace CircleProgressBar
         {
             InitializeComponent();
         }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var ani = new Animation((d) =>
+            {
+                Heart.LeftProgress = d * 0.45;
+                Heart.RightProgress = d * 0.70;
+                Heart.BottomProgress = d * 0.90;
+            });
+            ani.Commit(this, "Up", length: 1000, easing: Easing.SinIn);
+        }
     }
 }
