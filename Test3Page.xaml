@@ -8,8 +8,9 @@
              x:Class="CircleProgressBar.Test3Page">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <local:HeartChart x:Name="Heart" AbsoluteLayout.LayoutBounds="52, 89, 256, 210" AbsoluteLayout.LayoutFlags="None"/>
-            <!--<local:HeartChart x:Name="Heart2" AbsoluteLayout.LayoutBounds="85, 67, 190, 156" AbsoluteLayout.LayoutFlags="None"/>-->
+            <local:DailyActivityChart x:Name="Heart" AbsoluteLayout.LayoutBounds="52, 89, 256, 210" AbsoluteLayout.LayoutFlags="None"/>
+            <!--<local:DailyActivityChart x:Name="Heart2" AbsoluteLayout.LayoutBounds="85, 67, 190, 156" AbsoluteLayout.LayoutFlags="None"/>-->
+            <local:DailyActivityLabels AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"/>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

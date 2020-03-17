@@ -182,6 +182,7 @@ namespace Sample
 
             using (var primaryPaint = new SKPaint
             {
+                IsAntialias = true,
                 Style = SKPaintStyle.Stroke,
                 StrokeCap = SKStrokeCap.Round,
                 StrokeWidth = (float)Thickness,
@@ -229,6 +230,7 @@ namespace Sample
                 {
                     using (var fontPaint = new SKPaint
                     {
+                        IsAntialias = true,
                         Color = TextColor.ToSKColor(),
                         TextSize = (float)FontSize,
                     })

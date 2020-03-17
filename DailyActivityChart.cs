@@ -7,11 +7,11 @@ using Xamarin.Forms.Internals;
 
 namespace CircleProgressBar
 {
-    public class HeartChart : SKCanvasView
+    public class DailyActivityChart : SKCanvasView
     {
-        public static readonly BindableProperty LeftProgressProperty = BindableProperty.Create(nameof(LeftProgress), typeof(double), typeof(HeartChart), defaultValue: 0.0, coerceValue: (bo, v) => ((double)v).Clamp(0, 1), propertyChanged: (b, o, n) => ((HeartChart)b).InvalidateSurface());
-        public static readonly BindableProperty RightProgressProperty = BindableProperty.Create(nameof(RightProgress), typeof(double), typeof(HeartChart), defaultValue: 0.0, coerceValue: (bo, v) => ((double)v).Clamp(0, 1), propertyChanged: (b, o, n) => ((HeartChart)b).InvalidateSurface());
-        public static readonly BindableProperty BottomProgressProperty = BindableProperty.Create(nameof(BottomProgress), typeof(double), typeof(HeartChart), defaultValue: 0.0, coerceValue: (bo, v) => ((double)v).Clamp(0, 1), propertyChanged: (b, o, n) => ((HeartChart)b).InvalidateSurface());
+        public static readonly BindableProperty LeftProgressProperty = BindableProperty.Create(nameof(LeftProgress), typeof(double), typeof(DailyActivityChart), defaultValue: 0.0, coerceValue: (bo, v) => ((double)v).Clamp(0, 1), propertyChanged: (b, o, n) => ((DailyActivityChart)b).InvalidateSurface());
+        public static readonly BindableProperty RightProgressProperty = BindableProperty.Create(nameof(RightProgress), typeof(double), typeof(DailyActivityChart), defaultValue: 0.0, coerceValue: (bo, v) => ((double)v).Clamp(0, 1), propertyChanged: (b, o, n) => ((DailyActivityChart)b).InvalidateSurface());
+        public static readonly BindableProperty BottomProgressProperty = BindableProperty.Create(nameof(BottomProgress), typeof(double), typeof(DailyActivityChart), defaultValue: 0.0, coerceValue: (bo, v) => ((double)v).Clamp(0, 1), propertyChanged: (b, o, n) => ((DailyActivityChart)b).InvalidateSurface());
 
         SKColor _leftItemColor = SKColor.FromHsv(321, 71, 100); // normal
         SKColor _leftItemBGColor = SKColor.FromHsv(321, 60, 27); // dim
@@ -22,7 +22,7 @@ namespace CircleProgressBar
         SKColor _bottomItemColor = SKColor.FromHsv(217, 87, 100); // normal
         SKColor _bottomItemBGColor = SKColor.FromHsv(218, 83, 36); // dim
 
-        public HeartChart()
+        public DailyActivityChart()
         {
             PaintSurface += OnPaint;
         }
@@ -95,12 +95,14 @@ namespace CircleProgressBar
 
             using (var primaryPaint = new SKPaint
             {
+                IsAntialias = true,
                 Style = SKPaintStyle.Stroke,
                 StrokeCap = SKStrokeCap.Round,
                 StrokeWidth = Thickness,
             })
             using (var shadowPaint = new SKPaint
             {
+                IsAntialias = true,
                 Style = SKPaintStyle.Stroke,
                 ImageFilter = SKImageFilter.CreateDropShadow(0, 0, 3, 3, SKColor.Parse("#222222"), SKDropShadowImageFilterShadowMode.DrawShadowOnly),
                 StrokeCap = SKStrokeCap.Round,
