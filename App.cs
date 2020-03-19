@@ -14,7 +14,7 @@ namespace Sample
         {
             // The root page of your application
             //MainPage = new MainPage();
-            MainPage = new CircleProgressBar.Test3Page();
+            MainPage = new CircleProgressBar.Test4Page();
         }
 
         protected override void OnStart()

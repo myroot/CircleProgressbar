@@ -8,12 +8,20 @@ namespace CircleProgressBar
 {
     public class DailyActivityLabels : SKCanvasView
     {
+        const float s_largeInnerRadian = 141;
+        const float s_largeOutterRadian = 180;
+        const float s_smallInnerRadian = 113;
+        const float s_smallOutterRadian = 113;
+
+
+
         SKColor _leftItemColor = SKColor.FromHsv(321, 71, 100); // normal
         SKColor _rightItemColor = SKColor.FromHsv(105, 66, 98); // normal
         SKColor _bottomItemColor = SKColor.FromHsv(217, 87, 100); // normal
 
         float _mainTextSize = 39;
         float _subTextSize = 22;
+        float _unitSpacing = 6;
 
         public DailyActivityLabels()
         {
@@ -38,7 +46,7 @@ namespace CircleProgressBar
         public string BottomText { get; set; } = "7";
         public string BottomUnit { get; set; } = "times";
 
-        public double UnitSpacing { get; set; } = 6;
+        
 
 
         void OnPaint(object sender, SKPaintSurfaceEventArgs e)
@@ -47,8 +55,30 @@ namespace CircleProgressBar
             SKSurface surface = e.Surface;
             SKCanvas canvas = surface.Canvas;
 
-            var innerOval = SKRect.Create(new SKPoint { X = 39, Y = 39 }, new SKSize { Width = info.Width - 39 * 2,  Height = info.Height - 39 * 2 });
-            var outterOval = SKRect.Create(new SKPoint { X = 0, Y = 0 }, new SKSize { Width = info.Width, Height = info.Height});
+            SKRect innerOval;
+            SKRect outterOval;
+
+            Console.WriteLine($"Draw Labels : {info.Height}");
+
+            if (info.Height > 230)
+            {
+                // Large case
+                _unitSpacing = 6;
+                _mainTextSize = 39;
+                _subTextSize = 22;
+                innerOval = SKRect.Create(new SKPoint { X = (info.Width - s_largeInnerRadian * 2 ) / 2.0f, Y = (info.Height - s_largeInnerRadian * 2) /2.0f }, new SKSize { Width = s_largeInnerRadian * 2, Height = s_largeInnerRadian * 2 });
+                outterOval = SKRect.Create(new SKPoint { X = (info.Width - s_largeOutterRadian * 2) / 2.0f, Y = (info.Height - s_largeOutterRadian * 2) / 2.0f }, new SKSize { Width = s_largeOutterRadian * 2, Height = s_largeOutterRadian * 2 });
+            }
+            else
+            {
+                // Small case
+                _unitSpacing = 3;
+                _mainTextSize = 28;
+                _subTextSize = 20;
+                innerOval = SKRect.Create(new SKPoint { X = (info.Width - s_smallInnerRadian * 2) / 2.0f, Y = (info.Height - s_smallInnerRadian * 2) / 2.0f }, new SKSize { Width = s_smallInnerRadian * 2, Height = s_smallInnerRadian * 2 });
+                outterOval = innerOval;
+
+            }
 
             canvas.Clear();
 
@@ -75,12 +105,12 @@ namespace CircleProgressBar
                 var mainTextWidth = mainFontPaint.MeasureText(mainText);
                 var subTextWidth = subFontPaint.MeasureText(subText);
 
-                var diffAngle = (float)((mainTextWidth + subTextWidth + UnitSpacing) / (Math.PI * oval.Width) * 360) / 2.0f;
+                var diffAngle = (float)((mainTextWidth + subTextWidth + _unitSpacing) / (Math.PI * oval.Width) * 360) / 2.0f;
                 using (var path = new SKPath())
                 {
                     path.AddArc(oval, -90 - diffAngle + angle, 45);
                     canvas.DrawTextOnPath(mainText, path, 0, -0.1f * mainFontPaint.TextSize, mainFontPaint);
-                    canvas.DrawTextOnPath(subText, path, mainTextWidth + (float)UnitSpacing, -0.1f * subFontPaint.TextSize, subFontPaint);
+                    canvas.DrawTextOnPath(subText, path, mainTextWidth + (float)_unitSpacing, -0.1f * subFontPaint.TextSize, subFontPaint);
                 }
             }
         }
@@ -103,12 +133,12 @@ namespace CircleProgressBar
                 var mainTextWidth = mainFontPaint.MeasureText(mainText);
                 var subTextWidth = subFontPaint.MeasureText(subText);
 
-                var diffAngle = (float)((mainTextWidth + subTextWidth + UnitSpacing) / (Math.PI * oval.Width) * 360) / 2.0f;
+                var diffAngle = (float)((mainTextWidth + subTextWidth + _unitSpacing) / (Math.PI * oval.Width) * 360) / 2.0f;
                 using (var path = new SKPath())
                 {
                     path.AddArc(oval, 90 + diffAngle + angle, -45);
                     canvas.DrawTextOnPath(mainText, path, 0, -0.1f * mainFontPaint.TextSize, mainFontPaint);
-                    canvas.DrawTextOnPath(subText, path, mainTextWidth + (float)UnitSpacing, -0.1f * subFontPaint.TextSize, subFontPaint);
+                    canvas.DrawTextOnPath(subText, path, mainTextWidth + (float)_unitSpacing, -0.1f * subFontPaint.TextSize, subFontPaint);
                 }
             }
         }
