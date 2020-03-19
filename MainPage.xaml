@@ -14,7 +14,13 @@
                                   RadialEndColor="#f707e3"
                                   TextColor="White"
                                   AbsoluteLayout.LayoutBounds="0.5, 0.5, 360, 360"
-                                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                                  AbsoluteLayout.LayoutFlags="PositionProportional">
+                <local:RadialProgress.TextFormat>
+                    <x:String>
+                        <![CDATA[{0:P0} Complete]]>
+                    </x:String>
+                </local:RadialProgress.TextFormat>
+            </local:RadialProgress>
             <local:RadialProgress x:Name="Progress2" HasLabel="False" 
                                   Thickness="40"
                                   StartAngle="0"

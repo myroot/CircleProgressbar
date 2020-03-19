@@ -8,12 +8,20 @@ namespace CircleProgressBar
 {
     public class DailyActivityLabels : SKCanvasView
     {
+
+        public static readonly BindableProperty LeftTextProperty = BindableProperty.Create(nameof(LeftText), typeof(string), typeof(DailyActivityLabels), defaultValue: string.Empty, propertyChanged: (b, o, n) => ((DailyActivityLabels)b).InvalidateSurface());
+        public static readonly BindableProperty LeftUnitProperty = BindableProperty.Create(nameof(LeftUnit), typeof(string), typeof(DailyActivityLabels), defaultValue: string.Empty, propertyChanged: (b, o, n) => ((DailyActivityLabels)b).InvalidateSurface());
+
+        public static readonly BindableProperty RightTextProperty = BindableProperty.Create(nameof(RightText), typeof(string), typeof(DailyActivityLabels), defaultValue: string.Empty, propertyChanged: (b, o, n) => ((DailyActivityLabels)b).InvalidateSurface());
+        public static readonly BindableProperty RightUnitProperty = BindableProperty.Create(nameof(RightUnit), typeof(string), typeof(DailyActivityLabels), defaultValue: string.Empty, propertyChanged: (b, o, n) => ((DailyActivityLabels)b).InvalidateSurface());
+
+        public static readonly BindableProperty BottomTextProperty = BindableProperty.Create(nameof(BottomText), typeof(string), typeof(DailyActivityLabels), defaultValue: string.Empty, propertyChanged: (b, o, n) => ((DailyActivityLabels)b).InvalidateSurface());
+        public static readonly BindableProperty BottomUnitProperty = BindableProperty.Create(nameof(BottomUnit), typeof(string), typeof(DailyActivityLabels), defaultValue: string.Empty, propertyChanged: (b, o, n) => ((DailyActivityLabels)b).InvalidateSurface());
+
+
         const float s_largeInnerRadian = 141;
         const float s_largeOutterRadian = 180;
         const float s_smallInnerRadian = 113;
-        const float s_smallOutterRadian = 113;
-
-
 
         SKColor _leftItemColor = SKColor.FromHsv(321, 71, 100); // normal
         SKColor _rightItemColor = SKColor.FromHsv(105, 66, 98); // normal
@@ -26,24 +34,69 @@ namespace CircleProgressBar
         public DailyActivityLabels()
         {
             PaintSurface += OnPaint;
-            /*
-            foreach (var font in SKFontManager.Default.FontFamilies)
-            {
-                Console.WriteLine($"Font : {font}");
-            }
-            */
         }
 
 
-        public string LeftText { get; set; } = "333";
-        public string LeftUnit { get; set; } = "cal";
+        public string LeftText
+        {
+            get
+            {
+                return (string)GetValue(LeftTextProperty);
+            }
+            set
+            {
+                SetValue(LeftTextProperty, value);
+            }
+        }
 
+        public string LeftUnit
+        {
+            get
+            {
+                return (string)GetValue(LeftUnitProperty);
+            }
+            set
+            {
+                SetValue(LeftUnitProperty, value);
+            }
+        }
 
-        public string RightText { get; set; } = "18";
-        public string RightUnit { get; set; } = "mins";
+        public string RightText
+        {
+            get
+            {
+                return (string)GetValue(RightTextProperty);
+            }
+            set
+            {
+                SetValue(RightTextProperty, value);
+            }
+        }
 
+        public string RightUnit
+        {
+            get
+            {
+                return (string)GetValue(RightUnitProperty);
+            }
+            set
+            {
+                SetValue(RightUnitProperty, value);
+            }
+        }
 
-        public string BottomText { get; set; } = "7";
+        public string BottomText
+        {
+            get
+            {
+                return (string)GetValue(BottomTextProperty);
+            }
+            set
+            {
+                SetValue(BottomTextProperty, value);
+            }
+        }
+
         public string BottomUnit { get; set; } = "times";
 
         

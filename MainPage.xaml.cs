@@ -15,7 +15,6 @@ namespace Sample
         public MainPage()
         {
             InitializeComponent();
-            Progress.TextFormat = "{0:P0} Complete";
 
             /*
             Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>

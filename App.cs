@@ -13,8 +13,8 @@ namespace Sample
         public App()
         {
             // The root page of your application
-            //MainPage = new MainPage();
-            MainPage = new CircleProgressBar.Test4Page();
+            MainPage = new MainPage();
+            //MainPage = new CircleProgressBar.Test4Page();
         }
 
         protected override void OnStart()
