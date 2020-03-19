@@ -9,7 +9,10 @@
     <ContentPage.Content>
         <AbsoluteLayout>
             <local:DailyActivityChart x:Name="Heart" AbsoluteLayout.LayoutBounds="85, 67, 190, 156" AbsoluteLayout.LayoutFlags="None"/>
-            <local:DailyActivityLabels AbsoluteLayout.LayoutBounds="0, 38, 360, 226" AbsoluteLayout.LayoutFlags="None"/>
+            <local:DailyActivityLabels AbsoluteLayout.LayoutBounds="0, 38, 360, 226" AbsoluteLayout.LayoutFlags="None"
+                                       LeftText="583" LeftUnit="cal"
+                                       RightText="18" RightUnit="mins"
+                                       BottomText="7" BottomUnit="times"/>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -97,10 +97,17 @@ namespace CircleProgressBar
             }
         }
 
-        public string BottomUnit { get; set; } = "times";
-
-        
-
+        public string BottomUnit
+        {
+            get
+            {
+                return (string)GetValue(BottomUnitProperty);
+            }
+            set
+            {
+                SetValue(BottomUnitProperty, value);
+            }
+        }
 
         void OnPaint(object sender, SKPaintSurfaceEventArgs e)
         {
